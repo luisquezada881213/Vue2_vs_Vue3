@@ -1,19 +1,21 @@
 <template>
   <div id="app">
-    <Vue2One />
-    <Vue3One />
+    <Vue2Two />
+    <Vue3Two />
   </div>
 </template>
 
 <script>
-import Vue2One from './components/Vue2/One'
-import Vue3One from './components/Vue3/One'
+//import Vue2One from './components/Vue2/One'
+//import Vue3One from './components/Vue3/One'
+import Vue2Two from './components/Vue2/Two'
+import Vue3Two from './components/Vue3/Two'
 
 export default {
   name: 'App',
   components: {
-    Vue2One,
-    Vue3One
+    Vue2Two,
+    Vue3Two
   }
 }
 </script>
