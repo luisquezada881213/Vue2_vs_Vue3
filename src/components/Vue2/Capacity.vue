@@ -11,14 +11,18 @@
     <ul>
       <li v-for="(name , index) in attending" :key="index">{{name}}</li>
     </ul>
+    <small>Will be shown when capacity > 0</small>
+    <LifeCycles v-if="this.capacity > 0"/>
   </div>
 </template>
 <script>
 import clickMixin from './mixins/clickMixin'
 import alertMixin from './mixins/alertMixin'
+import LifeCycles from './components/LifeCycles'
 export default {
   name: "Vue2Two",
   mixins: [clickMixin, alertMixin],
+  components: { LifeCycles },
   methods: {
     decrement: function () {
       this.capacity--;

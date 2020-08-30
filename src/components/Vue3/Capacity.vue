@@ -5,31 +5,41 @@
     <h6>Spaces left: {{spacesLeft}}</h6>
     <button @click="increment">Increment</button>
     <button @click="decrement">Decrement</button>
-	<br/>
+    <br />
     <button @click="openAlert">Alert</button>
     <h3>Attending:</h3>
     <ul>
       <li v-for="(name , index) in attending" :key="index">{{name}}</li>
     </ul>
+    <small>Will be shown when capacity > 0</small>
+    <LifeCycles v-if="this.capacity > 0" />
   </div>
 </template>
 <script>
-import useEventSpace from "./use/event-space.js"
+import useEventSpace from "./use/event-space.js";
+import LifeCycles from "./components/LifeCycles";
 export default {
+  components: { LifeCycles },
   setup() {
-	const { capacity, attending, spacesLeft, increment, decrement } = useEventSpace();
-	const { openAlert } = useAlertSpace();
-	//or similar to mixins...
-	//return {...useAlertSpace(), ...useEventSpace()}
-	return{ capacity, attending, spacesLeft, increment, decrement, openAlert }
-  }
+    const {
+      capacity,
+      attending,
+      spacesLeft,
+      increment,
+      decrement,
+    } = useEventSpace();
+    const { openAlert } = useAlertSpace();
+    //or similar to mixins...
+    //return {...useAlertSpace(), ...useEventSpace()}
+    return { capacity, attending, spacesLeft, increment, decrement, openAlert };
+  },
 };
-function useAlertSpace(){
-	function openAlert(){
-		alert('you have alerted')
-	}
-	return{
-		openAlert
-	}
+function useAlertSpace() {
+  function openAlert() {
+    alert("you have alerted");
+  }
+  return {
+    openAlert,
+  };
 }
 </script>
