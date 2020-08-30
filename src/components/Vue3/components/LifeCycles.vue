@@ -1,6 +1,7 @@
 <template>
     <div>
         <h6>Vue 3 LifeCycle hooks component</h6>
+        <h6 v-if="previous">Previous value: {{previous}}</h6>
         <h6>Random value: {{value}}</h6>
         <button @click="update">Update</button>
     </div>
@@ -16,7 +17,8 @@ import {
   onActivated,
   onDeactivated,
   onErrorCaptured,
-  ref
+  ref,
+  watch
 } from "@vue/composition-api";
 export default {
     setup(){
@@ -48,12 +50,20 @@ export default {
         console.log("Vue 3: Error Captured!");
         });
         const value = ref(0)
+        const previous = ref(undefined)
+
+        watch(value, (newVal, prevVal)=>{
+            console.log("Vue 3 watcher", prevVal, newVal)
+            previous.value = prevVal
+        }, {immediate: true})
+
         function update(){
             value.value = Math.random()
         }
         return {
             update,
-            value
+            value,
+            previous
         }
     }
 }

@@ -31,7 +31,7 @@ export default {
   data() {
     return {
       capacity: 0,
-      attending: ["John", "Jane", "Steve"],
+      attending: ["John", "Jane", "Steve"]
     };
   },
   computed: {
@@ -39,5 +39,6 @@ export default {
       return this.capacity - this.attending.length;
     },
   },
+  watch: {}
 };
 </script>
