@@ -9,7 +9,7 @@
 //import Vue2One from './components/Vue2/One'
 //import Vue3One from './components/Vue3/One'
 import Vue2 from './components/Vue2/Capacity'
-import Vue3 from './components/Vue3/CapacityReactiveSyntax'
+import Vue3 from './components/Vue3/Capacity'
 
 export default {
   name: 'App',
