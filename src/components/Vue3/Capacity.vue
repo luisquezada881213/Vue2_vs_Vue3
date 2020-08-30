@@ -17,7 +17,11 @@
 import useEventSpace from "./use/event-space.js"
 export default {
   setup() {
-    return {...useAlertSpace(), ...useEventSpace()}
+	const { capacity, attending, spacesLeft, increment, decrement } = useEventSpace();
+	const { openAlert } = useAlertSpace();
+	//or similar to mixins...
+	//return {...useAlertSpace(), ...useEventSpace()}
+	return{ capacity, attending, spacesLeft, increment, decrement, openAlert }
   }
 };
 function useAlertSpace(){
