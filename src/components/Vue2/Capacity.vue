@@ -3,8 +3,8 @@
     <h1>Vue 2</h1>
     <h6>Capacity: {{capacity}}</h6>
     <h6>Spaces left: {{spacesLeft}}</h6>
-    <button @click="increment">Increment</button>
-    <button @click="decrement">Decrement</button>
+    <button @click="increment" :disabled="randomUser.loading.value">Increment</button>
+    <button @click="decrement" :disabled="randomUser.loading.value">Decrement</button>
     <br/>
     <button @click="openAlert">Alert</button>
     <br/>
